@@ -1,0 +1,718 @@
+seja muito bem-vindo ou bem-vinda a mais um vídeo do canal e no vídeo de hoje a gente vai aprender sobre backend Vamos
+criar nossa primeira api e Olha só tudo que a gente vai ver nessa aula é um curso completo sobre backend a gente vai
+criar nossa primeira api entender vários conceitos importantes de backend frontend a gente vai criar o nosso
+primeiro banco de dados vai conectar com a nossa aplicação vai entender sobre métodos http status http Então vai ser
+muito conteúdo mesmo e além de criar a nossa api na próxima aula a gente vai criar o nosso frontend para estar com o
+nosso backend Então vão ser duas aulas completas que vão valer como um curso para você eu sou Rodolfo mor seja muito
+bem-vindo ou bem-vinda a mais um vídeo do [Música]
+[Música] canal ó segura aí porque a gente vai codar muito no vídeo de hoje mas antes
+de gente ir pra prática eu quero só passar por uma base teórica para você entender como que internet funciona que
+que é um servidor que que é um backend que que é uma API e assim por diante a gente vai aprender tudo isso aqui tanto que eu já deixei pronto aqui várias e
+Como funciona uma API
+várias coisas mas antes eu preciso te falar do funcionamento básico da internet para você entender a aula de hoje olha a internet funciona da
+seguinte forma quando você entra num site exemplo você vai logar no Facebook você entrou no site do Facebook que a
+gente chama de frontend né que é a parte gráfica que você pega ali no seu celular ou no computador só que você digita
+informações por exemplo seu login e sua senha só que esse login sua e a senha quando você clica ali por exemplo em
+logar ou cadastrar-se essas informações vão sair ali do seu computador do seu celular e vão até um servidor famoso
+backend ou uma API como a gente sempre fala e aí lá dentro desse servidor ele
+vai verificar se seu e-mail tá certo sua senha tá certa e se você pode logar ou não na prática isso funciona mais ou
+menos assim a gente tem os celulares os computadores com os navegadores seja um tablet seja o aparelho que for rodando o
+nosso front end a parte gráfica e a todo tempo o nosso frontend se comunica com o backend pedindo informações pedindo
+dados pedindo ah usuário pode logar não pode eu preciso carregar os posts aqui
+para colocar na tela Me manda os posts então a todo tempo o front end fica se comunicando com o backend eu até fiz um
+desenho aqui para você entender você entrou num site você vai logar ou vai se cadastrar no site aqui ó no front end
+esse site ele vai se comunicar com o servidor com backend e lá dentro do desse backend que é tudo que a gente vai
+ver na aula de hoje lá dentro esse backend ele vai verificar as informações ele vai acessar um banco de dados ele
+vai devolver uma informação lá pro frontend pro frontend colocar na tela e para isso a gente sempre trabalha com
+requisição e resposta então imagine essa situação o front end o usuário Se cadastrou clicou em cadastrar-se ele
+colocou as informações dele e clicou em cadastrar-se nesse momento a gente está mandando uma requisição para um servidor
+então eu vou acessar um servidor o servidor vai ter lá o endereço dele servidor.com bar usuários e eu vou
+mandar uma requisição para ele dizendo Olha eu quero me cadastrar nesse servidor eu quero me cadastrar nesse site eu quero que você guarde as
+informações aí no seu banco de dados para depois eu conseguir logar o frontend manda essa requisição esse
+Abrindo o VS Code
+pedido lá pro backend e o backend sempre vai devolver com uma resposta seja uma
+resposta de Ok você tá cadastrado ou no caso de uma listagem de usuários ele pode responder com os usuários que eu
+quero colocar na tela então basicamente é essa a teoria agora vamos colocar tudo
+isso na prática já vou pegar meu vs code aqui e vamos para a prática antes de eu
+abrir o v code já deixa aquele like Maroto que ajuda bastante que no canal tem bastante conteúdo então ó se
+inscreva aí Lembrando que toda segunda-feira temos Live aqui tá bom então bora pra tela do computador Bora pro meu vs code já tô com vs code aqui
+aberto escolha uma pasta aí no seu computadora pasta que você quiser vai aqui em arquivo abrir abre uma pasta aí
+mas antes de começar a digitar qualquer código a gente tem que ter esse cara instalado aqui que é o node vai no
+Google escreve node clica lá na primeiro opção você vai cair nesse site aqui para
+ara baixar o node é de graça não vai pagar nada mas vem a pergunta que que é
+o node Rodolfo olha por padrão o seu computador os servidores não sabem ler
+O que é o Node?
+JavaScript a gente vai construir a nossa pi o nosso backend utilizando a linguagem de programação JavaScript
+então o node nada mais é do que um ecossistema para que o seu computador ou
+lá no servidor eles entendam o nosso código JavaScript claro que vem várias coisas junto com o node que vão
+facilitar o nosso desenvolvimento das nossas aplicações exemplo a gente vai
+instalar o o node sempre a versão LTS que é a versão mais estável e depois que você instalar no seu computador node ele
+vai instalar junto eu acho que ele até avisa aqui ó ã em algum lugar eu acho que ele tava escrito Ó ele tá falando
+aqui ó que além de instalar o node ele vai instalar o package Manager que que é o Packet Manager é esse cara aqui ó é o
+npm o npm É como se fos a Play Store ou a App Store que você tem no seu celular
+você não consegue instalar vários aplicativos no seu celular entrando na loja da mesma forma aqui quando a gente
+vai desenvolver nosso código JavaScript com node a gente vai instalar bibliotecas que vão facilitar o nosso
+desenvolvimento e aí quando a gente instala o node ele já instala o npm que Vai facilitar a gente instalar essas
+bibliotecas tá bom node instalado vamos voltar aqui pra nossa pasta vazia e aí
+eu vou clicar aqui ó em cima em terminal novo terminal e aí a gente precisa iniciar o nosso projeto node para isso a
+gente vai digitar o comando npm eit - Y por que menos y o npm init ele
+vai fazer várias perguntas e a gente quer responder tudo com Sim tudo com Yes então npm init Men i y tá bom e ele vai
+criar este arquivo aqui que é o p. json esse arquivo basicamente vai ter todas
+as informações do nosso projeto o nome do projeto a versão descrição Qual que é
+o arquivo principal vai ter várias e várias e várias coisas que a gente não precisa se preocupar tanto com esse arquivo agora a gente pode fechar ele e
+aí para começar deixa eu limpar aqui dar um Clear eu vou fazer uma coisa que é criar
+o nosso primeiro arquivo que eu vou chamar de server.js no node é bem comum o arquivo
+que a gente vai colocar aqui o nosso arquivo principal chamar server.js a gente vai começar com mais estrutura bem
+chuta bem simples para você entender tudo claro que conforme vai crescendo vai teros outros arquivos mas vamos
+começar com server.js aqui dentro do node dá pra gente fazer muitas coisas mas muita
+Começando com a Criação da Estrutura (Back End)
+coisa mesmo só com o node Mas como eu falei para vocês existem bibliotecas que elas já trazem várias coisas prontas
+para nós e a gente já vai instalar a nossa primeira biblioteca antes de colocar a mão na massa a gente não precisa desse site tá bom o npm a gente
+não precisa acessá-lo a gente consegue instalar tudo lá por dentro do código mas só para você ver você pode ir aqui e pesquisar por exemplo a gente vai
+instalar agora uma biblioteca chamada Express se eu pesquisar aqui por Express clicar aqui ele vai ter todas as
+informações da biblioteca como instala Como usa tudo tudo tudo tudo mais eu vou aproveitar o comando aqui ó a gente
+clica aqui nesse comando ó cliquei aqui ele Já copiou que é o comando para instalar o Express é só eu colocar aqui
+no meu terminal dentro aqui ó do do meu vs code npm I que é de install Express
+certo dei um enter ele vai instalar aqui o meu pacote E
+você vai perceber que surgiram dois novos arquivos um pack Lock Jon e esse an modulos o pack Lock Jon ele nada mais
+é do que como se fosse um cachê aqui ele vai colocar as versões que a gente tá utilizando você não precisa se preocupar
+com esse arquivo não deixa ele bem quietinho aqui e ele também trouxe essa pasta chamada node moduls essa pasta
+node moduls se você for ver aqui ele instalou o Express aqui dentro ó tá aqui os arquivos do Express aí você me
+pergunta Tá mas esse monte de coisa que tá aqui além do Express bem se você for
+perceber o Express quando você instala ele ele precisa de várias outras bibliotecas Olha só um monte de
+biblioteca para funcionar então quando ele instala o Express ele tem que instalar outras bibliotecas junto para que o Express funcione essa pasta node
+modul você também pode deixar ela bem quietinha que a gente não vai utilizá-la por enquanto na verdade a gente vai
+utilizar nosso projeto Mas a gente não vai ter que ficar abrindo essa pasta tá ali as nossas bibliotecas deixa elas ali
+quietinhas e aqui dentro da pack Jon você vai perceber que assim que a gente instalou o Express ele apareceu aqui
+como dependência do nosso projeto então agora já tá marcado aqui que o nosso projeto tá utilizando o Express na
+versão 4.19 certo Agora vamos começar a digitar
+código Rodolfo você já falou falou falou falou falou e a gente não viu código
+Olha como a gente já viu ali na introdução da aula o que que nosso backend o que que nossa tem que fazer
+basicamente vai ser uma troca de informações entre o nosso front end com o nosso backend Então vamos já pensar no
+que a gente precisa fazer a gente precisa fazer um cadastro de usuários e para fazer um cadastro de usuários daqui
+a pouco eu vou explicar um por um o que que são esses caras aqui mas a gente vai ter que receber informações lá do
+frontend e vai ter que responder também então a gente recebe uma requisição e devolve uma resposta então é isso que a
+gente precisa isso aqui a gente chama de rotas então a gente precisa criar uma rota cara eu preciso de uma rota ou seja de
+um caminho para que o meu frontend me envie a informação de que ele quer ver
+todos os usuários ou ele quer criar um novo usuário então a gente precisa fazer isso e o Express vai ajudar bastante
+para isso a gente vai importar aqui o Express eu vou importar Express
+from Express é assim Opa Express pronto
+é assim que a gente importa importa uma biblioteca que a gente instalou então eu
+instalei a biblioteca tá instalada mas eu preciso avisar que eu quero utilizar essa biblioteca Não adianta só eu tacar
+essa biblioteca aí se você for ler a documentação do Express como ele é uma biblioteca você tem que ler a
+documentação para saber como usa eu já fiz isso e eu vou trazer tudo de mão beijada para vocês que que os criadores
+do Express recomendam para nós eles recomendam que a gente crie uma variável vou chamar essa variável de app que é
+normalmente o nome que as pessoas dão para essa variável e dentro dessa variável a gente vai fazer isso aqui ó a
+gente vai falar que essa variável app Ela tá aqui ó pegando o nosso Express e passando ele aqui ó como uma função
+agora dentro do app a gente vai ter acesso a tudo que tem dentro aqui do Express que não é pouca coisa certo
+primeira coisa que a gente vai fazer é criar uma rota só pra gente ir brincando para você ir entendendo uma rota que
+devolve alguma coisa chamei essa rota ela vai devolver alguma coisa para isso
+eu pego o app que eu acabei de criar e antes que a gente continue eu tenho que
+te explicar um conceito muito importante que tá lá nos toos da nossa aula que é este aqui ó get post delete que que
+são esses caras bem uma rota nada mais é do que essa comunicação entre o frontend o backend eu vou criando rotas E aí a
+gente consegue mandar informação receber informação a gente vai ver isso na prática mas você precisa entender uma
+coisa muito importante que é os métodos http não dá simplesmente para eu ir
+criando rotas sem eu falar o que que cada rota vai fazer por isso que a gente
+tem os métodos ou até a galera fala dos verbos http O que são esses caras nós
+temos cinco aqui e cada vez que eu vou criar uma rota eu tenho que falar o que que essa rota vai fazer E para isso eu
+uso um desses caras então se eu quero uma rota que vai listar usuários produtos ou trazer ali uma lista de
+usuários de produtos eu uso rotas do tipo get se eu quero criar alguma coisa
+é uma rota do tipo post se eu quero editar por exemplo vários usuários ou
+editar várias informações de usuário eu vou utilizar uma rota do tipo se eu
+quero editar uma coisa só eu uso uma rota do tipo Pet e se eu quero deletar eu uso a delete então nós temos esses
+cinco carinhas aqui então quando eu vou criar uma rota por exemplo eu vou criar uma rota agora que só vai mostrar uma
+informação só mostrar uma informação listar mostrar enfim é do tipo get então eu
+coloco app PG parênteses beleza as nossas rotas
+elas precisam de duas coisas vou até colocar aqui elas precisam de número um
+o tipo de Rota ali ou o método http que
+a gente chama então primeira coisa vou ter que falar se ela é do tipo get post Pat ou delete a segunda coisa que a
+gente precisa da nossa rota é o endereço sabe quando você acessa um site tem lá o
+o www.google.com sei lá site lá ó loja do
+Seu Zé aí tem a lojad sejus.com barra usuários barra
+produtos então é basicamente esta rota aqui ó que a gente vai colocar esse
+endereço que a gente vai colocar aqui que a gente precisa que a nossa rota tenha então eu coloco aqui ó as aspas e
+dentro eu coloco barra alguma coisa por exemplo a gente vai criar uma listagem de usuários eu vou criar aqui você pode
+colocar em inglês português vou fazer em português vai ficar mais fácil para vocês então app.get então quando eu
+acessar o meu servidor no Barra usuários usuários eu vou cair aqui
+dentro Beleza então quando eu acessar barra usuários no get por eu posso ter
+também o Barra usuários post eu posso ter um barra usuários por exemplo delite
+e eu posso ter um barra usuários Qual que é a diferença dos quatro bem
+quando eu acessar esse ele vai me trazer todos os usuários esse aqui ele vai criar um novo usuário esse aqui ele vai
+editar o usuário e esse aqui ele vai deletar um usuário conforme a gente viu aqui cada método http é para uma coisa
+então eu posso ter várias rotas usuário usuários Só que cada uma dependendo do
+método que eu utilizar vai fazer uma coisa diferente Beleza vamos começar só com a Rota get Então essa rota get ela
+precisa devolver para mim os usuários para isso eu vou colocar uma vírgula aqui e é muito importante saber que no
+express e também quando a gente fala de desenvolvimento backend você tem que ter
+em mente e este esta situação aqui ó que é requisição e resposta então eu tenho
+uma rota vai chegar uma requisição e eu preciso devolver uma resposta que é o
+famoso request Barra response response ou pros mais íntimos o
+rec e o rest que nada mais são do que a requisição e a resposta Vou colocar aqui
+entre parênteses E aí pra at então isso aqui é o padrão do Express não se
+assusta com isso aqui se você ainda tá começando o desenvolvimento Mas como eu falei para vocês se você for aqui na
+documentação do Express ó que eu tinha deixado aqui e for lendo tudo do Express ou se você for aqui na documentação ali
+que tinha no npm acho que eu fechei tudo tudo que eu tô fazendo tem na documentação tá bom então basicamente eu
+vou acessar uma rota de usuários e agora eu preciso retornar alguma coisa certo
+então eu preciso dar uma resposta aqui no request vai vir várias ã vai vir vários dados da requisição mas
+eu preciso também responder alguma coisa para responder eu posso colocar aqui um app pon send e colocar alguma coisa por
+exemplo eu vou responder só com Ok deu
+bom não tô respondendo com usuários não tô respondendo com nada nada nada nada
+não não é importante isso agora para nós a única coisa que eu quero opa aqui não é app aqui é rest tá bom Aqui é rest que
+é nosso response então aqui o importante é isso eu estou pegando e respondendo a
+gente tem esse método send aqui do Express que eu estou enviando uma resposta e agora para finalizar aqui
+essa parte eu preciso falar pro meu servidor aonde ele vai rodar como eu tô
+no meu computador eu preciso avisar para ele usar alguma porta do meu computador por isso que eu pego dou um app. lista e
+o número da porta que eu quero normal a gente utiliza por exemplo a porta 3000 Tá bom eu preciso avisar qual porta do
+meu computador ele vai rodar meu servidor tá rodando ainda não para ele rodar eu vou digitar aqui ó no meu
+terminal node espaço o nome do arquivo que eu quero rodar que no caso é o
+server.js Tá bom vou dar um enter ele deu algum erro aqui deixa eu ver ah boa
+ele tá dando esse erro aqui que ele tá falando assim olha eu não tô conseguindo não conseguindo entender essa importação
+do Express isso acontece por lá dentro do nosso pack Jon ele até tá falando eu
+tenho que colocar esse Type como Model Então vamos lá fazer isso ó então lá no pack Jon não tem lugar específico eu vou
+colocar aqui debaixo de version a gente vai colocar uma opção chamado Type e dentro dessa opção tem a opção common JS
+e a opção Model antigamente ó dessa forma toma cuidado com as vírgulas tá
+então Type PM agora vai funcionar antigamente a gente não importava os arquivos assim a gente importava de
+outra forma talvez você veja por aí a gente fazer assim ó const Express é igual a require Express esta forma antiga tá
+sendo descontinuada Tá bom mas a gente tem que avisar para ele que a gente tá usando a fórmula nova então para isso eu
+tenho que colocar o Type P Model para avisar ó tô usando a forma mais moderna fechei aqui não esquece de salvar vou
+limpar só para não ficar aquele código feio vou dar um node server Rodolfo não aconteceu nada é se
+não aconteceu nada ficou paradinho é porque agora o nosso servidor tá rodando na porta 3000 Beleza e como que eu sei
+que o meu servidor tá rodando olha para isso a gente pode por exemplo ir aqui no nosso navegador Vou colocar aqui local host
+quando o servidor tá rodando no seu computador mesmo ele vai responder aqui ó em local host dois pontos o número da
+porta então se você escrever aqui no navegador local host dois pontos número da porta ele vai responder tá Rodolfo
+ele não respondeu nada por qu bem porque o meu servidor tá rodando na porta 3000 mas a minha rota é barra usuários Então
+eu preciso colocar aqui ó o Barra usuários dei um enter E já apareceu aqui
+ó Ok deu bom Ele já respondeu para mim então aqui no meu frontend eu fiz uma
+requisição pro meu backend e ele respondeu só que as coisas ainda estão meio cruas Calma que a gente vai evoluir
+passo a passo um detalhe importante o nosso navegador por padrão toda vez que ele acessa um endereço ele sem sempre
+vai acessar com o método get mas se eu tivesse uma rota do tipo post ã não ia
+dar certo ele não ia conseguir acessar para isso quando a gente tá
+desenvolvendo aqui o backend no nosso computador a gente precisa instalar alguma ferramenta para nos auxiliar
+enxergar as respostas das nossas rotas uma das Ferramentas que eu utilizo é aqui dentro do vs codde mesmo clica aqui
+em extensões e tem essa extensão aqui ó o meu tá até instalado ó Thunder Client Então você vai aqui ó
+Thunder Thunder client ó este cara aqui ó você clica aqui instala o meu já tá
+instalado E aí vai aparecer este carinha aqui ó você pode clicar o meu já tem
+algumas rotas criadas aqui eu vou até deletar para não nos confundir vou começar do zero aqui com
+vocês ó já aprenderam coisa para caramba já deixou aquele like Maroto Lembrando
+que aqui embaixo sempre na descrição eu deixo o links para te ajudar na programação então dá uma olhadinha lá depois e se não for inscrito no canal se
+inscreva então beleza vou tirar um pouco o zoom eu instalei aqui o meu Thunder client você instala e ele vai pedir
+talvez que você reinicie o vs code então qualquer coisa você reinicia só um detalhe você reiniciar o vs code ele vai
+parar de rodar seu servidor ó vou dar um Ctrl C aqui ó ele parou de rodar se parar de rodar é só ir aqui em node
+server.js já voltou a rodar tranquilo agora aqui no Thunder client eu vou criar uma nova request E aí ele vai
+perguntar algumas informações per perguntar ó Saiu saiu com sotaque Eu vou
+tirar aqui ó porque o nosso é http então o nosso endereço vai ser http 2 p barra
+barra limpa tudo aqui local host 3000 Barra
+usuários eu vou escolher o método que é get ó aqui ele deixa escolher o método que eu quiser aqui eu clico em send e
+aqui Ele já respondeu para mim Ah bem legal ó já aprendemos vários conceitos V
+aprender mais coisa mas agora vamos começar a evoluir para o nosso objetivo
+Qual que é o nosso objetivo aqui vou até colocar é
+criar vou colocar nosso objetivo aqui ó criar nossa listagem de usuários criar
+nossa listagem de usuários então eu vou ter que na verdade não é só listagem né
+criar nossa API de usuários então primeiro passo
+todos os usuários segundo passo criar um usuário na verdade esse passo
+vai até antes né então primeiro eu tenho que criar um usuário depois conseguir listar todos os usuários conseguir
+editar um usuário e por fim deletar um usuário Então essas vão ser
+as nossas missões vamos começar então com a primeira missão que é criar um usuário criar um usuário a gente precisa
+guardá-lo em algum lugar a gente vai guardar num banco de dados daqui a pouco mas antes vamos fazer aqui bonitinho
+funcionando depois a gente cria um banco de dados Tá bom eu vou criar aqui uma variável uma variável chamado por
+exemplo users e depois a gente vai substituir isso aqui para um banco de dados mas por enquanto vamos criar aqui
+eu vou dar um app. poost vai ser a mesma rota gente só que olha só aqui é do
+método post Aqui é do método get aqui eu tenho que listar os usuários então aqui em vez de dar um rest send uma mensagem
+a gente pode enviar os usuários depois a gente faz isso vamos criar um usuário primeiro aqui eu vou ter o o request
+response a gente só viu o response por enquanto o request ficou quietinho mas agora a gente vai mexer nele porque a
+gente precisa pegar a requisição então basicamente O que que a gente vai ter que fazer eu ter que pegar a requisição
+ou seja o que vai vir aqui mim que vai chegar então imagine o front end mandando as informações que eu preciso
+criar do usuário então Ó para você imaginar imagine aqui ó que você tá no front end instalar na sua página usuário
+pega as informações dele e clica em se cadastrar essas informações elas vão criar uma requisição lá no servidor Ó
+Barra usuários como você quiser por exemplo usuários aqui essa requisição vai chegar com os dados aonde que vai
+chegar no post Eita e tá deu uma mexida aqui
+Eita que que eu fiz gente é ficou meio torto ainda
+vamos deletar essas setinhas mas Vocês entenderam né setinhas me trollaram essa requisição vai chegar aqui ó no método
+post correto e aí a gente vai ter que tratar essas informações guardá-las para
+quando eu por exemplo quiser ver essas informações com método get elas estejam guardadinhas para mim Ah então vamos lá
+então eu tenho aqui meus usuários basicamente o que eu vou ter que fazer é pegar a requisição mas cara o que que
+vem nessa requisição Rodolfo vamos lá entender eu vou dar um console pon log aqui no hack pra gente ver o que que tem
+aqui dentro e vou dar só só para ele parar de senão ele vai ficar ele não vai parar de executar eu vou dar só um ok ok
+post só para ele parar de executar vamos lá aqui no Thunder Thunder Thunder
+Thunder Cats Row quem é dessa época Thunder Cats comenta aqui embaixo quem que assisti a Thunder Cats é eu vou
+clicar aqui ó em Nova requisição eu vou clicar aqui só para copiar ó porque o endereço vai ser o mesmo vou copiar aqui
+ó local Roxo 3.000 em usuários cadê Aqui ó vou clicar em colar só que aqui vai
+ser do tipo post Ah interessante só que agora veem um problema na verdade dois
+problemas o primeiro problema é o seguinte vou tentar acessar minha rota ó
+deu erro deu erro 404 que é o próximo assunto que a gente vai ver Por que deu
+404 Esse é o primeiro problema toda vez que eu faço uma alteração no meu servidor eu preciso parar meu servidor
+cont CRL c e rodar de novo agora vamos executar de novo ó vamos lá
+request OK agora deu bom Rodolfo mas toda vez que eu mudar alguma coisa eu
+tenho que parar meu servidor não não não não não vamos parar o servidor aqui e v mudar um comando para que toda vez que
+eu salve ele restarte automaticamente meu servidor para isso a gente vai dar o node menos menos o Watch assim ó watch
+espaços server.js bom menos menos watch E aí ele começou a rodar bom esse
+warning aqui é normal ele tá falando que isso aqui é uma feit nova que é experimental mas tá funcionando muito
+bem pode utilizar e agora Toda vez que eu mudar alguma coisa no meu código por exemplo ok aqui deu certo e eu salvar
+dar o famoso control S ó ele já restou o meu servidor beleza vamos lá vou enviar
+um post Olha só o tanto de informação que veio aqui na minha requisição ó muita muita informação mas maioria delas
+não é important para nós não não o que mais importante para nós são esses
+carinhas que eu vou te mostrar agora que são estes carinhas aqui ó
+chamado de requests ó aqui nos requests a gente tem três tipos de requisições
+Request (Query Params)
+por assim dizer ou melhor três tipos de formas da gente enviar dados na nossa
+requisição por que que eu tô falando isso para que eu possa enviar as informações do usuário eu preciso enviar
+em algum lugar você tá vendo vendo enviando não tô enviando né não tô enviando Então eu preciso enviar aonde
+que eu vou enviar as informações quando eu tô dentro do meu site aqui como que eu envio essas informações daqui para cá
+tem basicamente três formas de eu enviar essas requisições ou essas informações a
+primeira é com os chamados Carry parons que que é o Carry parons o Carry parons
+é quando a gente sai colocando informações aqui na nossa URL Tá vendo você já vi um site que tem isso aqui o
+YouTube Tem isso o Google for no Google e pesquisar por exemplo node ó node Olha
+só isso aqui search q iG node e Ok igual a node tá
+vendo esse monte de informação que tá indo aqui na URL isso aqui são são são são Carry pattern eu estou mandando
+parâmetros por meio da minha URL E como que eu faço para usar Carry PN eu coloco aqui o sinalzinho de interrogação e aí
+tudo que eu colocar são vão se tornar por assim dizer variáveis então eu vou ter uma variável igual a Bahia e para
+separar informações eu coloco o e comercial então avisei que eu vou usar Carry par estado igual a Bahia cidade
+igual a Salvador e aí você pode ir colocando quantas informações você quiser beleza mas sempre eu uso isso não
+Imagine que um usuário vai logar no site ou colocar informação do cartão de crédito você acha que seria seguro
+colocar essas informações aqui no navegador para qualquer um enxergar não né por isso que a gente não tem só o
+Carry pars Carry Partners a gente usa por exemplo para fazer pesquisas Como o próprio Google informações que não são
+relevantes não são delicadas que qualquer um pode pode enxergar a segunda opção a gente tem os root parons os Road
+Route Params
+par é quando eu quero por exemplo acessar uma informação específica aqui ó
+eu posso passar quantas informações que eu quiser 1 2 3 4 5 10 no caso do Road
+par é sempre uma informação só por exemplo eu quero acessar esse usuário
+que tem o id22 é um usuário eu quero editar este usuário eu quero deletar
+este usuário então normalmente o Road pars a gente coloca barra alguma coisa e
+esse alguma coisa normalmente vai ser algo específico por exemplo o ID normalmente vai ser o ID ali por exemplo
+eu quero pesquisar por um filme específico usuário específico é um só a gente usa Road pars e por último que é o
+que a gente vai utilizar agora tem temos o b pars o b pars é nós enviarmos
+Body Params
+informações pelo Body E aí eu posso enviar tudo que eu quiser também então se eu for enviar uma informação mais
+delicada por exemplo a senha do cartão informações da do usuário informações
+mais delicadas mais sensíveis ou quando são muitas muitas muitas informações eu mando pelo Body pars aqui a gente
+utiliza para informações menores ó 1 2 3 4 agora imagine se eu tiver que mandar
+30 coisas vai ficar muito poluído aqui o meu navegador por isso que cada um no seu quadrado a gente vai utilizar o b
+parons para que a gente envie pelo Body as informações para criar um novo usuário para isso aqui no meu request eu
+vou clicar em Body E aí ele vai ter essa opção aqui ó Jon eu vou tirar um pouco o
+zoom ó Ah beleza tirei o zoom ele separou melhor aqui eu vou colocar em formato de Jon que é basicamente um
+formato que a gente utiliza para cado você vai ver que o json é um formato bem tranquilo de mexer E aí eu vou mandar as informações do meu usuário por exemplo
+Eh o meu usuário vai ter o nome vai ser
+Rodolfo aqui no Jon chave e valor a gente sempre coloca tudo com aspas duplas tá bom nome ele
+vai ter uma idade também vou colocar aqui a idade e ele também vai ter o
+e-mail um exemplo e-mail vai ser Rodolfo @email.com tá bom
+o último não tem vírgula tá na dúvida se tem alguma coisa errada clica aqui em Format certo Agora sim eu vou enviar no
+formato Jon esse formato que é o formato Universal lá para o meu server enviei
+ele diz que deu certo só que agora eu preciso pegar essas informações que estão chegando no meu request se você
+for pesquisar aqui tem muita coisa chegando no request mas eu vou pesquisar aqui por body ó Body Body B b b Cadê Ué
+não tá chegando Rodolfo cadê cadê não tá chegando Cadê as
+informações calma mais um detalhezinho por padrão o Express não usa Jon Então
+eu tenho que chegar no express e fala Express eu vou utilizar Jon para isso aqui em cima a gente pega o próprio app
+Tá certo que a gente colocou ali app puse Aí a gente faz isso aqui ó
+Express Jon e precisa colocar aqui em forma de função tá bom esta linha aqui
+vai garantir que a gente agora está utilizando Jon eu estou avisando pro Express Express vai chegar uma bagaça aí
+e é no formato Jon Olha só então beleza peguei minha rota que é do tipo post em
+usuários que ele vai chegar aqui e aí eu tô pegando tudo que tá vindo no rec
+vamos ver se vai chegar agora as minhas informações Agora sim enviei eu vou pesquisar de novo vou dar um cont CRL F
+aqui B aqui ó já tá aqui aqui as minhas informações Ah olha só que legal agora
+eu consigo pegar exatamente o que eu quero Então vou dar um Hack pon Body Body nosso Body agora vamos fazer a
+requisição de novo e agora sim ó tá vindo só as informações e agora ficou bem simples eu vou simplesmente pegar
+essas informações e fazer o seguinte users que eu crie ali em cima ó users
+pon push E aí vou colocar o que tá vindo
+aqui dentro que é o hack pon Body
+beleza e na hora de listar o usuário que que eu faço eu vou colocar aqui na tela
+o o usuário Primeiro vamos não já vamos deixar essa parte aqui pronta também que
+a gente vai listar o usuário para isso a gente vai dar um rest pon Jon porque
+lembra que meu meu usuário tá vindo aqui no formato Jon meu users então na rota get eu vou
+responder com o Jon com todos os meus usuários que é uma rota de listagem Tá
+certo e aqui na rota do tipo post eu vou salvar meus usuários aqui dentro dessa variável e só D uma resposta ok aqui deu
+certo vamos ver se deu certo então eu tô aqui na rota post vou criar esse usuário
+Ok deu certo e na rota get vamos ver se ele vai retornar o usuário pra gente ah
+retornou usuário vou criar mais um vou na rota post vou criar Agora a Maria tem
+35 anos o e-mail dela é Maria @email.com criei tá criado e aqui eu vou dar um
+send Ah já veio a Maria certinho agora a gente vai conectar isso com banco de
+dados por qu isso aqui não é nada profissional se eu salvar aqui ó salvei
+ele já vai restartar o meu servidor deixa eu mudar qualquer coisa aqui ó mudei
+ok salvei aqui restarte o meu servidor e quando eu restarte meu servidor Se eu
+tentar e ó tá vendo já sumiu tudo aí eu vou ter que criar tudo tudo do zero não
+tá funcionando o importante até aqui é você ter entendido que nós temos as nossas rotas as rotas TM além do
+endereço o tipo da Rota e aqui a gente tá manipulando a requisição requisição é
+o que chega para mim e enviando uma resposta só um detalhe que eu quero explicar para vocês antes da gente
+instalar nosso banco de dados é que além dos métodos http a gente tem os status
+de resposta Além de eu responder com uma mensagem de Ok mais importante que a mensagem é o código é por código que o
+meu backend vai entender que tá tudo certo e o front end também lembra que o front end e o backend eles ficam se
+conversando mandando requisições e respostas no final um vai saber o que
+aconteceu no outro por meio dos códigos então imagine o seu front end o seu
+front end mandou eu criar o usuário Paulo 18 como que ele vai saber se deu
+tudo certo se o backend criou ou não é o backend devolvendo uma resposta com um
+código com código 200 Ah então só para ser bem rápido todos os códigos que
+começam com dois 200 201 enfim 204 206
+são códigos de sucesso você pediu pro backend fazer alguma coisa e ele respondeu que deu certo códigos 400 sabe
+o famoso 404 Que Acabou de aparecer ali são erros do lado do frontend exemplo o
+frontend tá tentando acessar uma rota que não existe ou uma rota que tá fechada que é proibida que ele não
+colocou a senha certa então toda vez que o seu frontend que a parte gráfica faz
+uma cagada é erro 400 ó quer ver ó ó automaticamente ele colocou para mim ó
+deu tudo certo 200 Se eu colocar uma rota que não existe ó ó 404 não
+encontrada Por quê o meu front end ó eu tô simulando o front end aqui né quando eu simulo front end ele tá fazendo
+alguma cagada e quando é erro 500 é que o seu servidor tá com algum problema ou o seu servidor deu algum pau aqui é erro
+no backend no frontend aqui erro no backend Tá certo então só para ficar bem
+completo o nosso código a gente tem que responder com o status também então aqui Além de eu responder com meus usuários
+eu vou colocar aqui ó status 200 então eu tô respondendo ó a sua
+requisição deu certo status 200 e eu tô te devolvendo os usuários aqui a mesma
+coisa ó eu vou responder has P status 201 Por que 201 bem o 200 é que deu tudo
+ok o 201 é que deu tudo ok e eu criei o que você pediu para eu criar essa rota
+aqui não é para criar um novo usuário não é para criar usuário então eu tô avisando ó criei o seu novo usuário 201
+e eu também vou responder com Jon eu vou responder com o usuário que foi criado tá vou devolver aqui o usuário que foi
+criado isso aqui é um padrão que a gente usa além de criar mostrar o que que eu criei Vou salvar e só pra gente fechar
+com chave de ouro ó vou pegar a Maria vou criar a Maria e ó ele respondeu com 201 ó criado e respondeu com os dados da
+Maria se eu for aqui e buscar por usuários aqui na rota get Ele já
+respondeu também com 200 e Devolveu a Maria para mim beleza então a gente já avançou você já aprendeu coisa para
+caramba Espero que você tenha anotado tudo mas não Acabou agora a gente precisa fazer a nossa rota de edição e
+também a rota de delite mas a gente já vai fazer isso com um banco de dados para ficar algo bem profissional e
+evoluir Nossa aplicação para isso a gente vai utilizar um banco de dados que é muito simples de mexer que é o mongo
+MongoDB
+DB de graça tá primeiro passo aqui é você criar uma conta de graça Ó você clica aqui em signup cria uma conta
+coloca seus dados aqui bem simples eu vou logar aqui com o meu github deixa eu
+colocar aqui vou clicar aqui ó em github Tá certo tanã ele vai puxar os dados do
+meu github e já vai criar um cadastro para mim na verdade eu já tinha criado então eu vou logar aqui já volto vamos
+lá na verdade eu cliquei ali em criar uma nova conta com o Google só dei Ok Ok Ok apareceu essa tela aqui eu vou
+aceitar aqui os termos de privacidade termos de serviço clica aqui em submit ele tá pensando E aí tá dando as
+boas-vindas T deixa ele carregar aqui ã ele tá perguntando ele vai perguntar o
+que que você quer fazer Ah quero aprender mais sobre o mongo você vai respondendo aqui quanto tempo de de
+experiência Você tem ele vai perguntar que que você desenvolve Vou colocar aqui ó ah cadê cadê cadê JavaScript node
+[Música] tã coloca aqui o que você vai desenvolver
+ah cadê cadê Cadê pá colocar aqui beleza finish essas informações são mais pra
+pesquisa interna deles tranquilo aqui ele já caiu na tela para eu criar o meu banco de dados toma cuidado que esses
+daqui são pagos a gente quer essa última versão que é a free tá bom ele já selecionou São Paulo aqui essa aqui a
+região quanto mais próximo de você mais rápido vai ser vou deixar aqui em São Paulo que é o único servidor que eles TM
+no Brasil mas não vai fazer tanta diferença vou dar um nome aqui você pode dar o nome que você quiser pro se do
+banco vai ser vou chamar de users que vão guardar os nossos usuários vou clicar em criar Tá bom vamos ver se ele
+vai pegar pediu recap não pediu parte muito importante aqui você vai criar o seu usuário usuário e senha do seu banco
+então agora você cria um usuário aí eu vou criar aqui ó vou chamar de Rodolfo você cria o que você quiser e a senha
+pode ser essa autogenerate Mas você vai guardar isso aqui ó então copia aí ó
+guarda aqui em algum lugar do seu código ó eu vou deixar um comentário aqui embaixo ó vou deixar aqui ó meu usuário
+é Rodolfo e a senha pode gerar você faz o que você quiser coloca 100 que você quiser só que tem alguns caracteres que
+ele não aceita tá então dá uma olhadinha Às vezes você tá colocando acho que ah algum caracter que ele não aceita eu acho que @ ó tá vendo ó ele não aceita ó
+então eu vou gerar aqui vou copiar essa senha para eu não esquecer você cria a
+sua vou clicar em quit user ele já criou Por enquanto é isso aqui isso aqui deixa
+como tá E vamos dar um finish ok go to overview a gente tem que mudar duas
+configurações aqui tá ele tá criando aqui o nosso banco de dados ele enquanto
+ele cria a gente tem que trocar du duas configurações a primeira aqui do lado esquerdo Network access ele setou para
+eu só acessar do meu IP a gente vai editar e vai colocar para acessar
+qualquer IP ó allow access from anywhere tá bom para não dar pau como a gente tá
+em ambiente de desenvolvimento tá tranquilo você vai dar um confirm aqui ele tá pensando deixa ele salvar Ok já
+tá aplicando a nossa configuração e outro coisa que a gente tem que mudar esse Database access aqui ó em cima do
+Network tá aqui o meu usuário só que a gente vai editar E vai colar meu usuário como admin Então a gente vai aqui em
+beute enroll E vai colar como Atlas admin Tá bom vou dar um update user e
+acabou vamos lá ver se ele clicar aqui em Database ó ele já tá subindo aqui o
+meu banco de dados mas entretanto todavia a gente precisa de uma
+biblioteca para que a gente consiga conectar o nosso banco de dados ó o nosso banco de dados bonitão que tá aqui
+pra gente conecte ele lá dentro do nosso código Tá certo só um detalhe eu não
+falei antes mas que que é um banco de dados banco de dados é um local que você vai guardar lá suas informações até
+agora a gente tá guardando as informações do nosso código Só que aí o código Restart a gente perde tudo para
+que nosso projeto seja profissional a gente precisa guardar isso num banco de dados que fica seguro ali todas as informações então lá a gente consegue
+deletar adicionar e fazer tudo que a gente precisa para que a gente possa manipular nosso banco de dados ou seja
+consiga adicionar informações deletar a gente precisa instalar uma biblioteca e a gente vai utilizar essa aqui chamado
+Biblioteca para o Banco de Dados
+Prisma prisma.io tá bom clica aqui em get Starter o tutorial deles é muito muito
+bom ã você vai aqui ó tã aqui ó setup up
+setup Prisma ORM clica aqui em mongo DB Tá certo e ele vai dar todos os passos
+antes só não aqui mesmo ó clica aqui em mong DB aqui ele tá Type script a gente
+vai usar J script só então clica em JavaScript E aí eu vou resumir para vocês mas se você for lendo se quiser
+até traduzir aqui ele vai dando passo a passo Primeiro passo é instalar o prisma veja que ele instala como menos menos
+save Dev Ou seja eu não vou entrar em muitos detalhes vamos parar aqui o servidor ó aqui ó só dar Ctrl C vamos
+instalar mas ele vai instalar aqui com uma dependência de desenvolvimento Tá bom se você for aqui no pack de Jon
+lembra que a gente instalou o Express o Express tá como uma dependência o prisma tá com uma dependência de desenvolvimento basicamente A diferença
+é que isso aqui mesmo quando for pro servidor lá no servidor quando a gente postar isso aqui fazer o Deploy ele vai
+usar o Express as dependências de desenvolvimento a gente só usa Elas quando a gente tá aqui realmente no desenvolvimento da aplicação a gente não
+vai precisar delas lá quando tiver num num servidor mesmo tá bom quando tiver publicado ele já instalou o prisma vamos
+continuar ali as configurações depois de instalar o prisma e ele pede aqui pra gente dar um npm npx prisma init bom npx
+Prisma init é npx tá você vai colar aqui npx Prisma init e ele vai criar alguns
+arquivos para nós aqui dentro ah primeiro arquivo esse ponto env este
+ponto env é aqui que a gente vai colocar o a nossa conexão com o banco de
+D que conexão é essa pra atenção presta atenção passo a passo vamos voltar lá no
+nosso mong DB vai ter aqui ó o menu Database que ele já criou e vamos clicar
+em Connect espera ficar verdinho que ele criou aqui Connect vou clicar em drivers
+coloca aqui node tá bom node E aí ó a gente precisa copiar este código aqui ó
+ó ó ó este código aqui pode clicar em copiar Só que tem um detalhe que eu fi
+você guardar seu usuário e senha Aisa colar aqui ó colei aqui ó tá vendo só
+que tem um detalhe muito importante importantíssimo a gente precisa colocar
+o nome de usuário e senha aqui também então eu vou lá pegar o nome de usuário ele já tá certo aqui já tá Rodolfo Só
+que eu preciso pegar minha senha aí você pega a sua vou voltar aqui no Envy Tira
+aqui o password inteiro ó vou até dar um zoom ó tá vendo pá então dois pontos o
+meu password @user tá E aqui nesse barra eu preciso colocar o nome também que da minha do
+nome do meu banco por assim dizer eu vou colocar aqui ó users Tá bom então Ó mongodb.net Barra eu vou colocar aqui
+users e aí esse daqui pra frente são configurações dele tá bom mas é importante você colocar aqui ó barra o
+nome que você quiser e aqui é importante você colocar sua senha tá bom Aqui eu vou salvar tirar um pouco Zoom Vou
+salvar e agora a gente vai dentro dessa pasta aqui chamado Prisma esima P Prisma
+vamos voltar lá nas configurações aqui do do Mongo não tem mais o que fazer Deixa ele quietinho aqui aqui no no no
+Prisma a gente foi aqui em Connect não foi aqui em mong DB primeiro fiz até
+aqui ao final agora a gente vai no próximo menu que é Connect your Database vou copiar esta linha aqui essas três
+linhas só clicar aqui ó e aí ele já tá falando ó copia isso aqui e cola lá no
+esima P Prisma Então vamos lá esima P Prisma a gente não vai utilizar postgis
+então Eu deleto isso aqui ó deleto e colo aquele que eu copiei agora tá bom data source DB só colar aqui tá bom Aqui
+ó esima pon Prisma ó esima pon Prisma Ok o env eu já fiz né O que ele o que ele
+pediu para eu fazer a gente já foi aqui no arquivo pon env já acertou tudo que tinha para
+acertar continuando aqui a gente já acertou Já fez tudo que ele falou agora
+cliquei aqui e aí ele já vai falar para eu criar o meu esquim o que que é o
+Informações do meu Usuário
+esima basicamente falando a gente precisa avisar pro banco como que vai ser o formato que a gente vai criar os
+nossos dados que que eu vou enviar para ele naqu na na naquela rota vai ser o
+usuário usuário vai ter que informações nome idade sabe eu não posso simplesmente mandar qualquer coisa pro
+pro banco de dados ou mandar qualquer coisa pro backend as informações têm que ser organizadas tudo tem que tá
+bonitinho ali então eu preciso avisar para ele Quais que vão ser as informações do meu usuário Tá bom eu vou
+copiar isso aqui ó que já tem um Model aqui user bom e a gente vai alterar o que a gente precisa vou copiar isso aqui
+também vai no arquivo skima P Prisma então aqui no esima P Prisma eu vou
+colar eu vou chamar de user mesmo que vai ser meu usuário o meu user vai ter um ID essa linha que a gente copiou que
+esse monte de coisa que você não tá entendendo ele basicamente vai criar automaticamente um ID toda vez eu criar
+um usuário Lembrando que isso aqui é uma biblioteca de terceiro Então quando você vê esse monte de código maluco não fica
+assustado não fica achando que você não sai programação é que isso aqui é uma biblioteca então eles vão criar no padrão deles Tá certo não se assusta com
+isso aqui o nosso usuário vai ter um e-mail inclusive o prisma coloca como único ou seja se eu tentar cadastrar
+dois usuários com o mesmo e-mail ele vai bloquear o meu usuário vai ter um name
+esse essa interrogação no final significa que o nome não é obrigatório mas eu vou querer que o nome seja obrigatório e meu usuário vai ter uma
+age uma idade que vai ser um string aqui também e aí esse post aqui eu posso
+deletar tá bom bonitinho aqui e para terminar eu preciso depois que eu fiz
+tudo isso ó salva salva salva ã vamos ver se na documentação ele fala isso mas agora eu tenho que rodar um comando ã eu
+acho que ele não tá falando mas tudo bem a gente vai fazer isto agora eu vou rodar um comando
+basicamente para avisar ao meu Prisma aqui avisar meu banco de dados que já tá tudo configurado que já tá tudo certo
+aqui embaixo Ó você dar um zoom você vai dar um npx Deixa eu lembrar DB aqui ó npx
+Prisma espaço DB espaço push npx espaço Prisma espaço DB DB de
+Database banco de dados traduzindo push vou dar um enter E aí eu já vou ver ver
+se tem algum erro ó ele já tá pensando pensando pensando e já deu tudo tudo tudo tudo certo tá bom Já correu tudo
+bem se deu algum erro aqui aí você pesquisa aí o erro um detalhe muito importante eu esqueci de instalar o
+prisma client que eu preciso instalar esse cara também Inclusive era o próximo passo na verdade não esqueci era o próximo passo eu preciso instalar esse
+cara aqui ó vamos instalar você já vai ver o porquê vou copiar aqui vou
+instalar deixa ele instalar agora a gente não tem nada no nosso banco mas
+olha só que legal que dá para fazer com Prisma eu vou dar um npx prisma espaço
+Studio vou dar um enter e olha só ele já abriu aqui uma
+interface gráfica Onde eu consigo ver as informações do meu banco de dados por enquanto não tem nada não tem nada mas
+eu consigo até criar ó já tá aqui ó o id o e-mail o name e o Age que é a idade então eu posso criar aqui um um e-mail
+vou criar aqui vai ser roda.com nome vai ser Rodolfo idade
+31 Vou salvar tá aqui ó já tá criado um dado ele já criou um ID automaticamente
+então com Prism Studio eu consigo ver as informações o que que tá no meu banco de
+dados Lembrando que isso aqui tá online tá isso aqui tá lá no meu banco online online se eu abrir isso em outro computador ele vai abrir as mesmas
+informações é só eu conectar com o banco aqui dentro do Prisma eu acho que a
+gente já fez tudo agora basicamente o que ele vai ensinar para nós é como que a gente dentro do nosso código a gente
+se comunica aqui ó então aqui a gente já pode fechar já tá tudo certo agora a
+gente vai ter que alterar o nosso código para que a gente consiga criar um usuário e listar um usuário editar um
+usuário utilizando o nosso banco de dados vamos começar aqui criando um novo
+usuário no banco de dados vamos lá na documentação que é sempre a melhor coisa se fazer Tá certo a gente parou aqui ó a
+gente já instalou o prisma Cent se você não instale E aí agora a gente vai começar importando aqui ó importando o
+prisma client pro nosso projeto e também já V importar copiar essa variável que ele cria aqui para nós então vou aqui em
+cima vou colar o prisma client Import Ó tem que ser igualzinho o Express aqui a importação e ele também já traz essa
+variável Prisma e essa variável já vai guardar dentro tudo tudo tudo tudo que tem dentro do Prisma então tudo que a
+gente vai precisar vai est aqui nessa variável e ela que a gente vai utilizar tá certo aqui a gente vai criar o nosso
+usuário sempre no método post então eu vou aqui na minha rota de post aqui
+dentro da rota de post eu vou dar Prisma ponto olha só que legal ele já completa
+para nós Prisma puser Por que Prisma puser porque aqui dentro ó a gente criou
+o user se aqui fosse client Lá seria Prisma P Cent então ele é inteligente
+ele já completa para nós porque a gente já avisou para ele que a gente vai ter um user E aí se você voltar na
+documentação você vai ver que ele fala pra gente utilizar o prisma puser P quit
+para criar o novo usuário ou criar o que você quiser lá dentro Lembrando que a
+gente precisa colocar dentro do data aqui ó a gente cria tem o objeto aqui data e dentro dele vai as informações do
+nosso usuário Então vamos lá então Prisma puser pon Create Create colocou o
+parênteses Chaves aqui dentro das chaves a gente dá um cont control espaço ó ele até completa para nós você aqui é o data
+ou select eu quero o data dois pontos e aqui dentro eu vou colocar as informações que eu já avisei
+que eu vou mandar não adianta eu querer mandar um abacate porque eu tenho que mandar o que está mapeado aqui tá certo
+banco de dados Não é bagunçado eu tenho que mandar o que tá mapeado aqui no caso é e-mail name e age coloquei em inglês
+porque normalmente a galera costuma colocar em inglês e nas aulas eu gosto de falar em português para ficar mais didático Mas normalmente a galera usa em
+inglês name age idade e e-mail todos eles são Strings o Age eu deveria ter criado ele como uma int ó int só que se
+eu for trocar agora vai dar pau Então vamos continuar a aula a idade vai ser uma string Mas normalmente idade a gente
+trabalha com inteiros com int com Number mas isso aqui é não é importante para
+nós agora ã eu vou aqui em server.js vamos voltar aqui e vamos colocar e-mail vai ser qual que vai ser
+meu e-mail ó tudo vem aqui dentro de hack das requisições Então se a gente
+for aqui na nossa requisição vou tirar um pouco o zoom para ficar um do lado assim então melhor na nossa requisição a
+gente tá enviando todas as informações ó dentro do Body inclusive vou até trocar aqui ó vou colocar name age e aqui e
+mail e meio o Age agora não é um Number é uma string então eu vou colocar as aspas duplas aqui senão vai dar problema
+tá bom Inclusive eu não vou colocar as aspas duplas para vocês verem o erro que vai dar mas basicamente Tá bonitinho
+aqui e essas informações estão vindo pelo b então a gente pega elas de hack que é minha requisição pon b ponto o
+name que é o que eu vou mandar aqui pagee p email então o e-mail vai vir de
+ponto e-mail desculpa o name vai vir de
+hack. body pname e o Age vai vir de hack. b. age Então eu estou mandando lá
+para dentro do banco de dado um e-mail que vai ser o e-mail que tá vindo a minha requisição um name que tá vindo na minha requisição e o Age que tá vindo
+aqui na minha requisição eu vou salvar e só tem um último passo que eu preciso colocar o await aqui na frente por que
+que que esse aight olha isso aqui a gente chama de uma Promise uma forma bem
+simples para você entender se eu faço um 2 mais 2 Eu Só dependo do JavaScript vim
+aqui e fazer essa conta agora o que eu tô tentando fazer aqui é acessar algo que não tá no meu controle eu tô indo no
+banco de dados e voltando quanto tempo isso demora não tem como saber então PR
+esse tipo de requisição que a gente chama de Promises ou requisições assíncronas a gente precisa colocar o await na frente pra gente falar
+JavaScript espera vai voltar uma informação espera tá certo e toda vez que eu coloco a weight na frente a minha
+função tem que ser assíncrona então aqui na frente do Rec has eu preciso colocar esse A tá bom parou de dar erro agora eu
+vou salvar aqui meu servidor não tá rodando eu vou subir aqui ó eu vou clicar nesse coisinha para ficar tanto o
+estúdio rodando quanto o servidor vou colocar aqui no de menos menos o Watch server assim ó tá vendo tirar um pouco o
+zoom já voltou a rodar Não esquece de salvar voltando aqui na minha requisição eu vou fazer a requisição e você vai ver
+que vai dar erro ó ó deu erro por o banco de dados Ele só pode receber o que
+ele espera então ele tá esperando que seja uma string e eu estou enviando um Number ele até fala aqui ó Onde tá o
+erro Tá certo não pode então aqui eu vou colocar nesse formato eu vou até trocar o nome vai ficar igual que vai ser a
+Maria a Maria que vai ser 35 Tá bom agora vai
+funcionar Não funcionou porque não tá rodando o servidor deixa eu salvar aqui que ele volta a rodar voltou a rodar
+enviar pronto 201 criou tudo certinho se a gente for lá no
+estúdio aqui no estúdio ó Prisma Studio Vou atualizar e já tá aqui ó o Rod
+@email e a Maria @email e olha só lembra que a gente falou aqui que o e-mail ele
+era único não podia se repetir se por acaso eu tentar enviar o mesmo usuário com e-mail olha só o que acontece ó deu
+erro ele já avisa ó ó não dá é único ó é único ó falhou porque o e-mail tem que
+ser único único único único Beleza o banco de dados é inteligente Deixa eu voltar a rodar então a criação de
+usuário já tá funcionando Vamos pro próximo o próximo vai ser listar todos os usuários para listar todos os
+usuários vai ser bem simples eu vou pegar o prisma eu vou colocar até o
+waight na frente Prisma ponto user ponto a gente tem essa opção aqui chamado find
+Man ó find many só que ela é uma função então eu coloco assim ele vai procurar dentro de user todos os usuários e vai
+me retornar eu preciso colocar isso dentro de uma variável para eu poder mostrar então const users aqui ó eu vou
+responder com 200 com os meus usuários só que ele tá dando erro por quê eu preciso colocar que é uma função
+assíncrona beleza legal só vou deletar esse users aqui em cima que a gente não vai usar
+mais salvei vamos lá n nossas requisições aqui do lado ó Thunder vou
+na requisição tipo get get em usuários e pronto já foi lá no banco e já retornou
+os usuários inclusive com o ID que ele criou bem legal bem legal mesmo agora a
+gente precisa editar o usuário e deletar um usuário para isso eu já vou passar
+duas coisas para vocês primeiro listar usuários get acabamos de utilizar
+Editando o Usuário
+post criar agora a gente vai editar utilizando e também vamos deletar
+utilizando o delete Outro ponto importante é toda vez que eu for deletar um usuário ou editar um usuário é um
+usuário só Então olha só que interessante quem que a gente vai utilizar agora Hã root parents a gente
+vai utilizar o Road pars o Road pars ele serve para algo específico então por exemplo eu quero
+nosso caso a gente tá chamando todos os usuários a gente podia chamar um usuário só não é o que eu quero agora mas eu quero editar um usuário específico então
+eu coloco aqui o ID do usuário eu quero deletar um usuário específico eu coloco o ID dele então a gente vai utilizar o
+root parents para utilizar o root parents é bem simples eu vou criar aqui uma nova rota
+ã vou pegar e duplicar isso aqui tá vai ser mais fácil ó vou duplicar só que
+agora ela não vai ser post ela vai ser Tá bom eu vou editar um usuário
+então eu vou mandar o ID do usuário aqui ó usuários barra o ID dele eu vou aqui no get e pegar eu vou editar a Maria ó
+Então vou pegar o ID da Maria ó peguei o ID da Maria e a gente coloca aqui ó Nessa rota do tipo
+ã essa aqui ó ele não trocou aqui ainda acho que eu tenho que dar um send pronto ó agora trocou vai dar erro porque eu
+não criei ainda então barra oid então eu quero editar Eu vou acessar a rota de
+usuários e eu quero editar um usuário que vai ser a Maria então eu estou enviando a informação pelo pelo aqui ó
+pelo root parents Mas eu também tenho o meu Body parents Ok eu posso enviar
+pelos dois e a gente vai pegar lá pelos dois também então vamos lá voltar aqui no server aqui no eu eu vou copiar
+esse post porque a gente vai aproveitar muita coisa que tá aqui dentro tá bom vou copiar e vou colar aqui vamos
+alterando o que precisa aqui não vai ser post vai ser em usuários assim
+que fica igual aqui não vai ser quit aqui vai ser ponto update Beleza então aqui eu vou
+atualizar as informações que chegarem no meu B só que eu vou atualizar quem para isso antes do data eu tenho que colocar
+um cara chamado whereare que que é o Where where é cara onde que eu vou atualizar Aonde então eu coloco Where
+dois pontos aqui ó o as chaves vírgula E aí eu preciso avisar quem que eu vou
+atualizar no caso eu vou atualizar eu vou procurar um usuário pelo id dele primeiro eu falo que eu quero acessar o
+prisma tabela de usuários ali meu meu esquema de usuários eu vou atualizar um
+usuário quem que eu vou atualizar e as informações novas do usuário certo
+informações atualizadas para isso a gente vai pegar o que tá aqui dentro do
+Rec eu vou comentar isso aqui ó cont control espaço esse código aqui tá
+comentado então ele vai ser ignorado e vamos dar um console P log aqui no hack ó no ha na requisição Tá bom vou salvar
+aqui e aí eu vou rodar a requisição de deixa eu clicar aqui ele tá enviando
+algo pelo b e tá enviando ali no Road panas eu vou dar um send
+ã t tá dando ã porta 3000 usuários ã
+tá dando erro Por que que tá dando erro Rodolfo eu esqueci de um detalhe tá
+vendo que eu tô mandando usuários barra alguma coisa hum aqui eu preciso também
+de usuários barra alguma coisa só que agora
+aqui vai chegar uma variável por quê orora eu vou mandar um ID hora eu vou
+mandar outro ID então eu não posso chegar aqui copiar e falar ó a minha rota é essa aqui então para isso eu
+preciso criar uma variável aqui mas como que eu crio uma variável aqui Rodolfo eu crio const id não não não é assim que eu
+crio para eu avisar para ele que aqui o que vai chegar para mim é algo que ele precisa guardar numa variável e trazer
+para mim eu faço o seguinte eu dou o nome pra variável que é o ID só que eu não vou escrever const const ID let ID
+para eu falar para ele que aqui vai ser uma variável é só eu colocar os dois pontinhos Então quando você vê usuários
+barra dois pontinhos alguma coisa significa que isso aqui é uma variável eu poderia chamar ele de abacate eu poderia chamar ele de de melan
+de salada mista do que você quiser eu podia chamar de like que eu não sei quem é o louco que assistiu até aqui tá
+aprendendo tanto e não deixou um like não se inscreveu no canal pelo amor de Deus inclusive toda segunda-feira tem Live aqui embaixo tem um link PR você se
+inscrever pras lives meu Deus do céu se você não fez tudo isso ainda você tá ficando maluco porque aqui é o melhor lugar PR você se tornar um programador
+da Elite então esses dois pontinhos significa que vai vir uma variável aqui eu vou chamar essa variável de ID mesmo
+tá bom salvei aqui agora sim vamos lá rodar Nossa requisição agora ele rodou
+Beleza o que mais importa para nós é esse console log veio um monte de coisa aqui por exemplo veio o meu body
+ó Cadê o b em algum lugar tá o meu B deixa eu ver
+aqui cadê Aqui ó ó o meu Body aqui ó name age e meil beleza a gente já tinha
+visto isso mas além do Body veio outro cara que tava aqui ó na tela e eu perdi que é esse cara aqui ó parans ó
+dentro de parans tá vindo o meu ID tá vendo que que legal se eu tivesse trocado aqui para de ID para
+abacate tudo que eu mandar ali ó vou fazer a requisição de novo
+vou mandar aqui escrito abacate 1 2 3 Olha só dei um send e aí ó chegou aqui
+no meu parans Cadê o parans aqui ó parans chegou uma variável chamada abacate com o valor abacate 1 2 3 então
+entendeu essa conexão Então o que eu coloco dois pontos aqui ele cria uma variável que no meu caso vai ser ID E aí
+aqui eu posso mandar o que eu quiser e aqui eu vou mandar o ID da Maria Ah
+então basicamente o que a gente vai ter que fazer agora é vou tirar o comentário
+aqui Opa cont contrl Z demais aqui eu vou colocar
+barra dois pontos ID tô criando uma variável id e essa variável vai vir para mim em hack. pararan pid então eu tô
+falando Prisma atualiza um usuário esse usuário é o usuário que chegar no ID que
+eu tô mandando aqui e aí essas vão ser as novas informações do usuário editado eu vou salvar e aí a gente tem a Maria
+aqui ó eu tenho aqui no meu Prisma a Maria que o e-mail dela é Maria @email e
+a Maria tem 35 anos Putz A Maria agora passou um ano ela tá mais velha
+então a Maria Agora ela tem 36 anos e ela mudou o e-mail dela agora é Maria abacate
+@email.com certo então vamos lá o ID da Maria já tá aqui ó vamos conferir se o
+ID da Maria Tá certo eu vou copiar aqui o ID da Maria copiei colei aqui o ID da Maria vou dar um send e tá aqui ó ele
+atualizou a Maria Agora a Maria tem 36 e o e-mail dela é Maria abacate @email Vou
+atualizar aqui e tá aqui ó atualizada lá no banco de dados legal tranquilo agora
+nós temos a rota de delite porque eu quero deletar a Maria a Maria ela se
+descadastrar não tá mais aqui eu preciso deletá-lo para isso eu vou criar uma rota do tipo delete então
+Rota "Delete"
+app ponto o quê delete mesmo esquema aqui ó segue a mesma estrutura ó eu vou
+deletar onde barra usuários aí eu preciso saber quem
+eu vou deletar então eu coloco dois pontos ID porque eu vou pegar o ID do usuário vírgula vai uma requisição
+assíncrona então eu vou colocar o assim na frente o hack vírgula has coloco a setinha aqui e coloco aqui dentro a
+minha rota Tá certo vou colocar o await Prisma puser P delete Rodolfo como que eu faço
+para deletar vamos lá na documentação se você for descendo aqui na documentação
+ele fala do update ó que eu já mostrei para vocês ó tá vendo ó você coloca o a e o que que você quer procurar eu
+procurei pelo id que é o mais seguro poderia procurar pelo e-mail não sei aí vai do seu gosto ó o find Man que eu
+falei para vocês tá aqui ó que é buscar todos os usuários dentro por exemplo do
+da nossa esquema ali de tudo que tá ali dentro de usuários o delite ele não coloca aqui para nós mas eu vou falar
+para você como que faz não fica preocupado aqui para fazer o delete Ó você colocar user ponto ele tem várias
+informações e aí ele tem o delite Man que é para deletar vários de uma vez ou apenas delete eu vou clicar aqui apenas
+no delete só que aqui no delete eu preciso avisar quem eu quero deletar para isso eu vou utilizar o weare igual
+a gente utilizou aqui no nosso putch ó no update a gente utilizou o a só que
+agora eu não vou mandar dado nenhum para ele eu simplesmente vou falar quem eu quero deletar ele vai deletar então coloco o a we dois pontos coloco aqui
+nossas Chaves e aí eu preciso passar algum dado pode ser e-mail pode ser o name não daria muito certo que o nome
+pode ser repetido o ideal é que seja um dado único no nosso caso a gente tem único o id e o e-mail só que eu vou usar
+o ID então eu falo para ele que eu quero deletar um cara que tem um ID meu ID tá vindo aqui per hack P parans pid Ok tô
+avisando para ele Ó deleta esse cara aqui e aí no final vou dar uma mensagem para avisar que foi deletado então
+colocar aqui ó status 200 e aí Vou colocar aqui ó uma mensagem
+colocar aqui ó ã message eh
+usuário deletado com sucesso deletei o usuário Deixa eu formatar aqui beleza
+bonitinho Nossa rota delite agora vamos testar eu vou aqui no Thunder Thundercat Roll New request vai ser do tipo delete
+Vamos colocar aqui o endereço certinho http ele já completou para mim e agora eu preciso Deixa eu tirar um pouco o
+zoom beleza Agora eu preciso pegar o ID então o ID é único Tá então não vai copiar o ID igual o meu que senão vai
+dar problema cada usuário que você for criando vai ter um ID aleatório os seus aí vão ter ides aleatórios eu vou copiar
+aqui o Rodolfo vamos deletar o Rodolfo então barra o ID do Rodolfo vou dar um
+send e usuário deletado com sucesso se você for aqui ah sumiu só que faltou um detalhe para
+nós detalhe muito importante a gente passou por várias coisas aqui a gente
+Usando o (Query Params)
+aende endeu os tipos de Rota os métodos só que a gente não viu na prática o
+Carry parents Então vamos utilizar o Carry parons para um uma aplicação bem
+prática e você aprender como usa esse cara o Carry parons a gente vai utilizar aqui ó ó nesse carinha aqui ó no get de
+usuários só um detalhe que eu tava esquecendo é que na próxima aula aqui do canal a gente vai criar interface
+gráfica vai criar o front end Então não esquece então já clica no Sininho aí para se lembrar do próximo vídeo e se
+você tá assistindo mais PR frente pode ser que o link do frontend já tá aqui embaixo Então faça aplicação completa para adicionar ao seu portfólio a gente
+vai atacar agora os ha parans né os ha par servem pra gente basicamente fazer pesquisas fazer filtros posso pesquisar
+pelo tipo pelo nome pela idade pelo que eu quiser vamos fazer uma pesis simples
+aqui pelo nome e pela idade um exemplo essas informações do Carry par Elas vão
+vir aqui ó o desculpa é do do Carry pars Elas vão vir aqui dentro das nossas
+requisições vamos aqui então na nossa requisição de get vou aqui no Thunder na
+de get e pra gente colocar informações no Carry pars a gente coloca aqui interrogação uma variável por exemplo
+name igual a Maria e posso colocar mais informações idade igual a 25 então
+basicamente o que a gente tá fazendo aqui é criando variáveis e eu consigo pegar o valor dessas variáveis lá dentro
+do meu backend lá dentro da minha rota o thunder até facilita para nós ó ele já traz aqui uma interface bem legal vamos
+pegar essas informações lá então se a gente for aqui no nosso server a gente consegue dar um console pon log que nem
+a gente já fez em hack Vou salvar aqui salvei e Restart aqui vou voltar aqui na
+minha rota get vou dar um sent voltou aqui somente a Maria que tá cadastrada
+agora mas o mais importante para nós é isso aqui ó se eu for aqui eu vejo que
+dentre Aquele monte de informação da minha requisição ah cadê cadê cadê é muito informação né
+ã mas aqui ó Carry eu tenho o name Maria o Age 25 então eu tenho os valores aqui
+eu posso fazer o que eu quiser com eles dentro do meu código exemplo vou fazer aqui algo bem simples tá colocar um if
+se o meu hack. Carry existir você perceber aqu ele chama Carry né ó Carry
+pname page se o meu hack. Carry existir a gente vai fazer um filtro pro usuário
+senão a gente só retorna O o padrão mesmo que é o await Prisma user find Man
+bom facilitar vou criar o usuário já aqui em cima ó users igual a é um arreio
+vazio e aqui ou o meu usuários eu vou retornar todo mundo tá ou senão eu vou
+fazer um filtro para eu fazer um filtro eu vou utilizar o prisma então eu vou falar que meu users vai ser igual a wait
+Prisma puser P find Man também só que agora eu vou dar
+algumas características do que ele tem que me retornar para isso eu coloco Where também E aí eu falo ó me retorna
+um usuário que tenha um name que seja igual a o meu hack. Carry pname colocar
+só o name por enquanto se eu for aqui vou criar mais usuários para fazer uma diferenciação
+Então vou criar o Joaquim que tem 33 anos vou criar com 32 anos o
+o o Paulo hã que que deu de erro Ah tem que
+trocar o e-mail aqui né Paulo deixa eu restartar meu servidor vou criar o
+Paulo vamos criar a Paulo agora tinha colocado errado então vamos criar o Paulo e a
+Paula a Paula vai ter 35 e vamos criar oh meu Deus de novo Rodolfo não trocou
+e-mail Rodolfo agora foi beleza crii alguns
+usuários aqui se eu der um get você vai ver que ele vai me retornar eu vou tirar aqui ó o Carry
+pans que eu quero retornar tudo ó quero retornar todos os usuários ele vai me retornar a Maria o Joaquim o Paulo e a
+Paula tá certo tá me retornando todos só que agora eu posso fazer um filtro né Vou colocar aqui interrogação name igual
+a Paulo Então eu só quero que ele me retorne um usuário que tenha o nome
+Paulo ele tá me retornando aqui ó usuário que tenha o nome Paulo e aí eu posso colocar todas as minhas
+informações aqui eu posso colocar o name o e-mail
+então hack. carry.on email e posso também colocar o Age hack. Carry
+ag Ou seja eu consigo fazer um filtro ora no na mesma rota eu posso retornar
+todo mundo Onde eu busco só por usuários ele retorna todo mundo orora eu posso
+buscar por exemplo cara eu quero todos os usuários que tenham vou adicionar mais alguém com 32
+anos ó vou criar aqui o Rodolfo e-mail Rodolfo 2 e o Rodolfo tem
+32 anos adicionei aqui agora agora eu vou fazer um filtro onde eu só quero
+usuários que tem o Age igual a 32 pesquisei tem o Paulo e tem o Rodolfo
+ah não mas eu quero também coloco o e Comercial que o usuário tenha 32 anos e
+que o name dele seja igual a Rodolfo pesquisei aqui e agora ele fez
+um filtro mais qualificado e poderia pesquisar também pelo e-mail Tá bom
+então o Carry serve para isso pra gente fazer esses filtros paginação e assim por diante ó foi mais um vídeo do canal
+mas olha não acabou ainda agora você se inscreva no canal clica ali no Sininho Deixa aquele like Maroto e mais dois
+vídeos bem legais para te ajudar com programação
