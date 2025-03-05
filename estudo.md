@@ -78,7 +78,19 @@ app.listen(PORT, () => {
 })
 ```
 
+🚀 **O que é o Nodemon?**
 
+O Nodemon é uma ferramenta que serve para reiniciar automaticamente o servidor toda vez que alguma alteração no código é salva.
+
+Isso facilita muito o desenvolvimento, porque você não precisa ficar parando e rodando o servidor manualmente toda hora.
+
+### $ `node --watch {node_do_arquivo}`
+É um comando nativo do Node.js para reiniciar automaticamente o servidor.
+
+| Comando        | O que faz                                      | Precisa instalar? |
+|----------------|-----------------------------_------------------|-------------------|
+| `node --watch` | Observa mudanças em arquivos `.js` e reinicia  | ❌ Não            |
+| `nodemon`      | Observa qualquer tipo de arquivo e reinicia    | ✅ Sim            | 
 
 
 
@@ -147,3 +159,11 @@ ________|_________________________________|_____________________________________
 403     |    ❌ Forbidden                 |    Quando o cliente não tem permissão (mesmo autenticado, não pode acessar aquele recurso).
 404     |    ❌ Not Found                 |    Quando a rota ou o recurso solicitado não existe.
 500     |    ❌ Internal Server Error     |    Quando o servidor encontrou um erro inesperado (bug ou falha interna).
+
+
+____________________________________________| MongoDB |____________________________________________
+
+• Iremos 
+
+user: gabriewl 
+password: databasepassword
